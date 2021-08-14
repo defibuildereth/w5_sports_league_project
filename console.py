@@ -10,6 +10,11 @@ team_repository.delete_all()
 
 team1 = Team("ICTFC", "Tapestry")
 team2 = Team("HMFC", "Robbo")
+game = Game(team1, team2, 4, 0)
 
 team_repository.save(team1)
 team_repository.save(team2)
+
+game_repository.save(game)
+
+pdb.set_trace()

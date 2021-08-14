@@ -3,7 +3,7 @@ from models.team import Team
 from models.game import Game
 
 def delete_all():
-    sql = "DELETE * FROM teams"
+    sql = "DELETE FROM teams"
     run_sql(sql)
 
 
