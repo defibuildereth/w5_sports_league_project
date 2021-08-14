@@ -6,7 +6,6 @@ def delete_all():
     sql = "DELETE FROM teams"
     run_sql(sql)
 
-
 def save(team):
     sql = "INSERT INTO teams (name, manager) VALUES (%s, %s) RETURNING *"
     values = [team.name, team.manager]
@@ -23,3 +22,9 @@ def select_all():
         team = Team(row['name'], row['manager'], row['id'])
         teams.append(team)
     return teams
+
+def select(id):
+    sql = "SELECT * FROM teams WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    return results[0]
