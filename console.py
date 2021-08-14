@@ -7,3 +7,9 @@ import repositories.team_repository as team_repository
 
 game_repository.delete_all()
 team_repository.delete_all()
+
+team1 = Team("ICTFC", "Tapestry")
+team2 = Team("HMFC", "Robbo")
+
+team_repository.save(team1)
+team_repository.save(team2)
