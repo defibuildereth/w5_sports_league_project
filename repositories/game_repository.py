@@ -27,3 +27,9 @@ def save(game):
     id = results[0]['id']
     game.id = id
     return game
+
+def select(id):
+    sql = "SELECT * FROM games WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    return results[0]
