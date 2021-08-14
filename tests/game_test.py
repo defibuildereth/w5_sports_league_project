@@ -11,3 +11,6 @@ class TestGame(unittest.TestCase):
 
     def test_game_has_team1(self):
         self.assertEqual("ICTFC", self.game.team1.name)
+
+    def test_game_has_goals(self):
+        self.assertEqual(4, self.game.team1_goals)
