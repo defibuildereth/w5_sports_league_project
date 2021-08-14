@@ -3,16 +3,22 @@ from db.run_sql import run_sql
 from models.team import Team
 from models.game import Game
 
+import repositories.team_repository as team_repository
+
 def delete_all():
     sql = "DELETE FROM games"
     run_sql(sql)
 
-# def select_all():
-#     games = []
-#     sql = "SELECT * FROM games"
-#     results = run_sql(sql)
-#     for row in results:
-#         game = Game()
+def select_all():
+    games = []
+    sql = "SELECT * FROM games"
+    results = run_sql(sql)
+    for row in results:
+        team1 = team_repository.select(row['team_1'])
+        team2 = team_repository.select(row['team_2'])
+        game = Game(team1, team2, row['team_1_goals'], row['team_2_goals'], row['id'])
+        games.append(game)
+    return games
 
 def save(game):
     sql = "INSERT INTO games (team_1, team_2, team_1_goals, team_2_goals) VALUES (%s, %s, %s, %s) RETURNING *"
