@@ -37,9 +37,7 @@ def select(id):
 def teams(game_id):
     teams = []
     game = game_repository.select(game_id)
-    team1 = select(game.team1.id)
-    team2 = select(game.team2.id)
-    teams.append(team1)
-    teams.append(team2)
+    teams.append(select(game.team1.id))
+    teams.append(select(game.team2.id))
     return teams
     
