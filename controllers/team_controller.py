@@ -35,3 +35,8 @@ def delete_team(id):
     team_repository.delete(id)
     return redirect('/teams')
 
+@teams_blueprint.route("/teams/<id>/edit")
+def update_team_form(id):
+    team = team_repository.select(id)
+    return render_template("teams/update.html", team = team)
+
