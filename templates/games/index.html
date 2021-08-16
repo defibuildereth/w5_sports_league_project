@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<p>This is the games index</p>
+{% for game in games %}
+    {{game.team1.name}} {{game.team1_goals}} - {{game.team2_goals}} {{game.team2.name}}
+{% endfor %}
 
 
 {% endblock %}
