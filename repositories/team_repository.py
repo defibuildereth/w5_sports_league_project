@@ -46,3 +46,7 @@ def teams(game_id):
     teams.append(select(game.team2.id))
     return teams
     
+def delete(id):
+    sql = "DELETE FROM teams WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
