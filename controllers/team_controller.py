@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, Blueprint
 
 from models.team import Team
 
+import repositories.game_repository as game_repository
 import repositories.team_repository as team_repository
 
 teams_blueprint = Blueprint("teams", __name__)
@@ -22,3 +23,9 @@ def add_team():
     team = Team(team_name, manager_name)
     team_repository.save(team)
     return redirect("/teams")
+
+@teams_blueprint.route("/teams/<id>")
+def show_team(id):
+    team = team_repository.select(id)
+    games = game_repository.games(id)
+    return render_template("/teams/show.html", team = team, games = games)
