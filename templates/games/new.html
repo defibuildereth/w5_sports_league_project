@@ -2,7 +2,29 @@
 
 {% block content %}
 
-<p>this is the new game form</p>
+<h1>Add a Game</h1>
+
+<form action="/games" method="post">
+    <label for="team1">Team 1</label>
+        <select name="team1_id" id="team1">
+            {% for team in teams %}
+                <option value="{{team.id}}">{{team.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="team2">Team 2</label>
+        <select name="team2_id" id="team2">
+            {% for team in teams %}
+                <option value="{{team.id}}">{{team.name}}</option>
+            {% endfor %}
+        </select>
+    
+    <label for="team1_goals">Team 1 Goals</label>
+        <input name="team1_goals" type="number">
+    <label for="manager">Team 2 Goals</label>
+        <input name="team2_goals" type="number">
+        <input type="submit">
+</form>
 
 {% endblock %}
 
