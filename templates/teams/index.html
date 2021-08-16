@@ -2,7 +2,11 @@
 
 {% block content %}
 
-<p>This is the teams index page</p>
+{% for team in teams %}
+
+<p>{{team.name}}</p>
+    
+{% endfor %}
 
 
 {% endblock %}
