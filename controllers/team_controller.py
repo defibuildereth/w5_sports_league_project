@@ -8,3 +8,7 @@ teams_blueprint = Blueprint("teams", __name__)
 def teams():
     teams = team_repository.select_all()
     return render_template("teams/index.html", teams = teams)
+
+@teams_blueprint.route("/teams/new")
+def new_team():
+    return render_template("/teams/new.html")
