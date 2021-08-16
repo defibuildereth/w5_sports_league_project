@@ -30,6 +30,8 @@ def show_team(id):
     games = game_repository.games(id)
     return render_template("/teams/show.html", team = team, games = games)
 
-# @teams_blueprint.route("teams/<id>/delete", methods=["POST"])
-# def delete_team(id):
-#     team_repository.
+@teams_blueprint.route("/teams/<id>/delete", methods=["POST"])
+def delete_team(id):
+    team_repository.delete(id)
+    return redirect('/teams')
+
