@@ -40,5 +40,11 @@ def update_team_form(id):
     team = team_repository.select(id)
     return render_template("teams/update.html", team = team)
 
-
+@teams_blueprint.route("/teams/<id>", methods = ["POST"])
+def edit_team(id):
+    team_name = request.form['team_name']
+    manager_name = request.form['manager_name']
+    team = Team(team_name, manager_name, id)
+    team_repository.update(team)
+    return redirect('/teams')
 

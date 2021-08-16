@@ -4,11 +4,11 @@
 
 <h1>Edit This Team</h1>
 
-<form action="/teams/<id>" method="post">
+<form action="/teams/{{team.id}}" method="post">
     <label for="name">Team Name</label>
-        <input name="team_name" type="text" value="{{team.name}}">
+        <input name="team_name" id="name" type="text" value="{{team.name}}">
     <label for="manager">Manager Name</label>
-        <input name="manager_name" type="text" value="{{team.manager}}">
+        <input name="manager_name" id="manager" type="text" value="{{team.manager}}">
         <input type="submit">
 </form>
 
