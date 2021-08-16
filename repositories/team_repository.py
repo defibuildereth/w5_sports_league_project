@@ -10,8 +10,8 @@ def delete_all():
     run_sql(sql)
 
 def save(team):
-    # saves team into db
-    sql = "INSERT INTO teams (name, manager) VALUES (%s, %s) RETURNING *"
+    # saves team into db, returns id
+    sql = "INSERT INTO teams (name, manager) VALUES (%s, %s) RETURNING id"
     values = [team.name, team.manager]
     results = run_sql(sql, values)
     id = results[0]['id']

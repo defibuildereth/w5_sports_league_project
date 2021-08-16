@@ -15,10 +15,10 @@ def teams():
 def new_team():
     return render_template("/teams/new.html")
 
-# @teams_blueprint.route("/teams", method=["POST"])
-# def new_team():
-#     team_name = request.form['name']
-#     manager_name = request.form['manager']
-#     team = Team(team_name, manager_name)
-#     team_repository.save(team)
-#     return redirect("/teams")
+@teams_blueprint.route("/teams", methods=["POST"])
+def add_team():
+    team_name = request.form['team_name']
+    manager_name = request.form['manager_name']
+    team = Team(team_name, manager_name)
+    team_repository.save(team)
+    return redirect("/teams")
