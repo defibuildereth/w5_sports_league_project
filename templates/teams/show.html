@@ -2,7 +2,17 @@
 
 {% block content %}
 
-<h1>this is the show 1 team page</h1>
+<h1>{{team.name}}</h1>
+
+<h2>Manager: {{team.manager}}</h2>
+
+<h3>Recent games</h3>
+
+{% for game in games %}
+
+<p>{{game.team1.name}} {{game.team1_goals}} - {{game.team2_goals}} {{game.team2.name}}</p>
+    
+{% endfor %}
 
 
 {% endblock %}
