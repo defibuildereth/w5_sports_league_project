@@ -6,10 +6,12 @@ from models.game import Game
 import repositories.team_repository as team_repository
 
 def delete_all():
+    # deletes all games from db
     sql = "DELETE FROM games"
     run_sql(sql)
 
 def select_all():
+    # returns all games from db
     games = []
     sql = "SELECT * FROM games"
     results = run_sql(sql)
@@ -21,6 +23,7 @@ def select_all():
     return games
 
 def save(game):
+    # saves game into db
     sql = "INSERT INTO games (team_1, team_2, team_1_goals, team_2_goals) VALUES (%s, %s, %s, %s) RETURNING *"
     values = [game.team1.id, game.team2.id, game.team1_goals, game.team2_goals]
     results = run_sql(sql, values)
@@ -29,6 +32,7 @@ def save(game):
     return game
 
 def select(id):
+    # returns a game object for a given id
     game = None
     sql = "SELECT * FROM games WHERE id = %s"
     values = [id]
@@ -39,11 +43,15 @@ def select(id):
         game = Game(team1, team2, row['team_1_goals'], row['team_2_goals'])
     return game
 
-# def games(team):
-#     games = []
-#     sql = "SELECT * FROM games WHERE team_1 = %s OR team_2 = %s"
-#     values = [team.id, team.id]
-#     results = run_sql(sql, values)
-#     team = team_repository.select(team.id)
-#     for row in results:
-#         game = Game()
+def games(team_id):
+    # returns a list of game objects for a given team id
+    games = []
+    sql = "SELECT id FROM games WHERE team_1 = %s OR team_2 = %s"
+    values = [team_id, team_id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        game = select(row['id'])
+        games.append(game)
+    
+    return games
