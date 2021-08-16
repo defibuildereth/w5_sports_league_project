@@ -29,7 +29,21 @@ def save(game):
     return game
 
 def select(id):
+    game = None
     sql = "SELECT * FROM games WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    return results[0]
+    for row in results:
+        team1 = team_repository.select(row['team_1'])
+        team2 = team_repository.select(row['team_2'])
+        game = Game(team1, team2, row['team_1_goals'], row['team_2_goals'])
+    return game
+
+# def games(team):
+#     games = []
+#     sql = "SELECT * FROM games WHERE team_1 = %s OR team_2 = %s"
+#     values = [team.id, team.id]
+#     results = run_sql(sql, values)
+#     team = team_repository.select(team.id)
+#     for row in results:
+#         game = Game()
