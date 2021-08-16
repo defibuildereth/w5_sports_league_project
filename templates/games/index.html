@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for game in games %}
-    <p>{{game.team1.name}} {{game.team1_goals}} - {{game.team2_goals}} {{game.team2.name}}</p>
+    <p><a href="/teams/{{game.team1.id}}">{{game.team1.name}}</a> {{game.team1_goals}} - {{game.team2_goals}} <a href="/teams/{{game.team2.id}}">{{game.team2.name}}</a></p>
 {% endfor %}
 
 
