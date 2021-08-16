@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 
+from models.team import Team
+
 import repositories.team_repository as team_repository
 
 teams_blueprint = Blueprint("teams", __name__)
@@ -12,3 +14,11 @@ def teams():
 @teams_blueprint.route("/teams/new")
 def new_team():
     return render_template("/teams/new.html")
+
+# @teams_blueprint.route("/teams", method=["POST"])
+# def new_team():
+#     team_name = request.form['name']
+#     manager_name = request.form['manager']
+#     team = Team(team_name, manager_name)
+#     team_repository.save(team)
+#     return redirect("/teams")
