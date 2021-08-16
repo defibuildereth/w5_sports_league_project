@@ -2,7 +2,16 @@
 
 {% block content %}
 
-<h1>This is the update page</h1>
+<h1>Edit This Team</h1>
+
+<form action="/teams/<id>" method="post">
+    <label for="name">Team Name</label>
+        <input name="team_name" type="text" value="{{team.name}}">
+    <label for="manager">Manager Name</label>
+        <input name="manager_name" type="text" value="{{team.manager}}">
+        <input type="submit">
+</form>
+
 
 
 {% endblock %}

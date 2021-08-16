@@ -40,3 +40,5 @@ def update_team_form(id):
     team = team_repository.select(id)
     return render_template("teams/update.html", team = team)
 
+
+
