@@ -27,3 +27,8 @@ def add_game():
     game = Game(team1, team2, team1_goals, team2_goals)
     game_repository.save(game)
     return redirect("/games")
+
+@games_blueprint.route("/games/<id>")
+def show_game(id):
+    game = game_repository.select(id)
+    return render_template("/games/show.html", game = game)
