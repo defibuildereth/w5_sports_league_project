@@ -10,12 +10,14 @@ app.register_blueprint(games_blueprint)
 app.register_blueprint(teams_blueprint)
 
 
-import repositories.team_repository as team_repository
+# import repositories.team_repository as team_repository
+from models.league import *
 
 @app.route('/')
 def home():
-    teams = team_repository.select_all()
-    return render_template('index.html', teams = teams)
+    league = League()
+    league_dict = league.full_league()
+    return render_template('index.html', league = league_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
