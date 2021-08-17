@@ -33,6 +33,13 @@ class League():
             points = 0
         return points
 
+    def get_total_points(self, team_id):
+        total_points = 0
+        relevant_games = game_repository.games(team_id)
+        for game in relevant_games:
+            total_points += self.get_game_points(game.id, team_id)
+        return total_points
+
 
 
     # def full_league():

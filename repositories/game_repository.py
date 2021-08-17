@@ -40,7 +40,7 @@ def select(id):
     for row in results:
         team1 = team_repository.select(row['team_1'])
         team2 = team_repository.select(row['team_2'])
-        game = Game(team1, team2, row['team_1_goals'], row['team_2_goals'])
+        game = Game(team1, team2, row['team_1_goals'], row['team_2_goals'] ,id)
     return game
 
 def games(team_id):
