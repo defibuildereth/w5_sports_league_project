@@ -19,12 +19,15 @@ class League():
         return len(game_repository.games(team_id))
 
     def get_game_points(self, game_id, team_id):
-        
+        points = 0
         game = game_repository.select(game_id)
         if game.team1_goals == game.team2_goals:
             points = 1
         elif game.team1.id == team_id:
             if game.team1_goals > game.team2_goals:
+                points = 3
+        elif game.team2.id == team_id:
+            if game.team2_goals > game.team1_goals:
                 points = 3
         else:
             points = 0
