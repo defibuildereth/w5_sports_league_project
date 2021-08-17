@@ -40,7 +40,10 @@ class League():
             total_points += self.get_game_points(game.id, team_id)
         return total_points
 
+    def full_league(self):
+        league_dict = {}
+        teams = team_repository.select_all()
+        for team in teams:
+            league_dict[team.name] = [self.get_games_played(team.id), self.get_total_points(team.id)]
 
-
-    # def full_league():
-    #     league_dict = {}
+        return league_dict
