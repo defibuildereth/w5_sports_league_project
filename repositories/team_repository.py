@@ -38,6 +38,16 @@ def select(id):
         team = Team(row['name'], row['manager'], row['id'])
     return team
 
+# def select_name(name):
+#     # returns a team object for a given team name
+#     team = None
+#     sql = "SELECT * FROM teams WHERE name = %s"
+#     values = [name]
+#     results = run_sql(sql, values)
+#     for row in results:
+#         team = Team(row['name'], row['manager'], row['id'])
+#     return team
+
 def teams(game_id):
     # returns all teams (team objects) who played in a given game (id)
     teams = []

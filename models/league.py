@@ -1,5 +1,6 @@
 import repositories.team_repository as team_repository
 import repositories.game_repository as game_repository
+from models.team import Team
 
 
 class League():
@@ -40,10 +41,34 @@ class League():
             total_points += self.get_game_points(game.id, team_id)
         return total_points
 
+
     def full_league(self):
         league_dict = {}
         teams = team_repository.select_all()
         for team in teams:
             league_dict[team.name] = [self.get_games_played(team.id), self.get_total_points(team.id)]
 
-        return league_dict
+        sorted_dict = dict(sorted(league_dict.items(), key=lambda item: item[1][1], reverse = True))
+
+        return sorted_dict
+
+    # def order_teams(self):
+
+    #     teams_in_order = []
+    #     league = self.full_league() # returns a dictionary
+    #     index = 0
+
+        # for team in league:
+        #     if len(teams_in_order) == 0:
+        #         team_object = team_repository.select_name(team)
+        #         teams_in_order.append(team_object)
+
+        
+        # while index < len(league):
+        #     if league[team][1] > teams_in_order[index]:
+        #         teams_in_order.insert(index, team)
+        #     else:
+        #         index += 1
+        # teams_in_order.append(team)
+
+        # return teams_in_order
