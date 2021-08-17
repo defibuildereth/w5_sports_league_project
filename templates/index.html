@@ -2,6 +2,28 @@
 
 {% block content %}
 
-<h1>This is the Index</h1>
+<h1>This is going to be the league</h1>
+
+<table>
+    <tr>
+        <th>Team</th>
+        <th>Games Played</th>
+        <th>Points</th>
+    </tr>
+{% for team in teams %}
+    <tr>
+        <th>
+        {{team.name}}
+        </th>
+        <th>
+            No. Games
+        </th>
+        <th>
+            No. Points
+        </th>
+    </tr>
+{% endfor %}
+</table>
+
 
 {% endblock %}

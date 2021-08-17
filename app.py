@@ -10,9 +10,12 @@ app.register_blueprint(games_blueprint)
 app.register_blueprint(teams_blueprint)
 
 
+import repositories.team_repository as team_repository
+
 @app.route('/')
 def home():
-    return render_template('index.html')
+    teams = team_repository.select_all()
+    return render_template('index.html', teams = teams)
 
 if __name__ == '__main__':
     app.run(debug=True)
