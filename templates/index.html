@@ -4,7 +4,20 @@
 
 <h1>MeGa sUpEr LeAgUe</h1>
 
-{{league}}
+<table>
+    <tr>
+        <th>Team</th>
+        <th>Games Played</th>
+        <th>Points</th>
+    </tr>
+{% for team in league %}
+    <tr>
+        <td>{{team}}</td>
+        <td>{{league[team][0]}}</td>
+        <td>{{league[team][1]}}</td>
+    </tr>
+{% endfor %}
 
+</table>
 
 {% endblock %}
