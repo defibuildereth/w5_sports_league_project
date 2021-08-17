@@ -24,7 +24,7 @@ def select_all():
 
 def save(game):
     # saves game into db
-    sql = "INSERT INTO games (team_1, team_2, team_1_goals, team_2_goals) VALUES (%s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO games (team_1, team_2, team_1_goals, team_2_goals) VALUES (%s, %s, %s, %s) RETURNING id"
     values = [game.team1.id, game.team2.id, game.team1_goals, game.team2_goals]
     results = run_sql(sql, values)
     id = results[0]['id']
