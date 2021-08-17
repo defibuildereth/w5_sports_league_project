@@ -15,3 +15,6 @@ class TestLeague(unittest.TestCase):
 
     def test_league_has_teams(self):
         self.assertEqual(2, len(self.league.teams))
+
+    # def test_get_games_played(self):
+    #     self.assertEqual(1, len(self.league.get_games_played(16)))

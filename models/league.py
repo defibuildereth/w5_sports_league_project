@@ -6,16 +6,16 @@ class League():
         self.teams = teams
         self.games = games
 
-    def get_teams():
+    def get_teams(self):
         teams = team_repository.select_all()
         return teams
 
-    def get_games():
+    def get_games(self):
         games = game_repository.select_all()
         return games
 
-    def get_games_played(team):
-        return len(team_repository.games(team.id))
+    def get_games_played(self, id):
+        return len(game_repository.games(id))
 
 
     # def full_league():
