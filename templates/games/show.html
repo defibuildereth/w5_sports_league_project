@@ -4,6 +4,21 @@
 
 <h2>{{game.team1.name}} {{game.team1_goals}} - {{game.team2_goals}} {{game.team2.name}}</h2>
 
+{% if game.team1_goals == game.team2_goals %}
+
+{{game.team1.name}} drew with {{game.team2.name}}, each getting 1 point.
+
+{% elif game.team1_goals > game.team2_goals %}
+
+{{game.team1.name}} beat {{game.team2.name}}, winning 3 points.
+
+{% else %}
+
+{{game.team2.name}} beat {{game.team1.name}}, winning 3 points.
+
+
+{% endif %}
+
 
 {% endblock %}
 
