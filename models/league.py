@@ -2,7 +2,7 @@ import repositories.team_repository as team_repository
 import repositories.game_repository as game_repository
 
 class League():
-    def __init__(self, teams = None, games = None):
+    def __init__(self, teams = [], games = []):
         self.teams = teams
         self.games = games
 
