@@ -19,10 +19,16 @@ def new_game():
 
 @games_blueprint.route("/games", methods=["POST"])
 def add_game():
+
     team1_id = request.form['team1']
     team1 = team_repository.select(team1_id)
     team2_id = request.form['team2']
     team2 = team_repository.select(team2_id)
+    if team1_id == team2_id:
+        teams = team_repository.select_all()
+        scores= [1,2]
+        error = "The two teams must be different in order to save a new game"
+        return render_template("/games/new.html", teams = teams, scores = scores, error= error)
     team1_goals = request.form['team1_goals']
     team2_goals = request.form['team2_goals']
     game = Game(team1, team2, team1_goals, team2_goals)

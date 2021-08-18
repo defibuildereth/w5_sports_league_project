@@ -4,9 +4,11 @@
 
 <h1>Add a Game</h1>
 
+
+
 <nav id="game-form">
 
-<form action="/games" method="post">
+<form class="real-forms" action="/games" method="post">
     <label for="team1">Team 1</label>
         <select name="team1" id="team1">
             {% for team in teams %}
@@ -29,5 +31,7 @@
 </form>
 </nav>
 
+
+<div id="error-msg">{{error}}</div>
 {% endblock %}
 
