@@ -6,15 +6,15 @@
 
 {% if game.team1_goals == game.team2_goals %}
 
-{{game.team1.name}} drew with {{game.team2.name}}, each getting 1 point.
+<a href="/teams/{{game.team1.id}}">{{game.team1.name}}</a> drew with <a href="/teams/{{game.team2.id}}">{{game.team2.name}}</a>, each getting 1 point.
 
 {% elif game.team1_goals > game.team2_goals %}
 
-{{game.team1.name}} beat {{game.team2.name}}, winning 3 points.
+<a href="/teams/{{game.team1.id}}">{{game.team1.name}}</a> beat <a href="/teams/{{game.team2.id}}">{{game.team2.name}}</a>, winning 3 points.
 
 {% else %}
 
-{{game.team2.name}} beat {{game.team1.name}}, winning 3 points.
+<a href="/teams/{{game.team2.id}}">{{game.team2.name}}</a> beat <a href="/teams/{{game.team1.id}}">{{game.team1.name}}</a>, winning 3 points.
 
 
 {% endif %}
