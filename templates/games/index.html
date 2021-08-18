@@ -7,6 +7,7 @@
 {% for game in games %}
 <section>
     <p><a href="/teams/{{game.team1.id}}">{{game.team1.name}}</a> <a href="/games/{{game.id}}">{{game.team1_goals}} - {{game.team2_goals}}</a> <a href="/teams/{{game.team2.id}}">{{game.team2.name}}</a></p>
+
 </section>
     {% endfor %}
 
