@@ -17,9 +17,12 @@ th {
 
 #teams-index {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #teams-index > section {
     background-color: darkkhaki;
+    border: 4px solid crimson;
+    padding: 20px
 }
