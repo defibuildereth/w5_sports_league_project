@@ -14,3 +14,12 @@ td {
 th {
     background-color: rgb(212, 125, 236);
 }
+
+#teams-index {
+    display: flex;
+    flex-direction: column;
+}
+
+#teams-index > section {
+    background-color: darkkhaki;
+}
