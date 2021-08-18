@@ -14,7 +14,8 @@ def games():
 @games_blueprint.route("/games/new")
 def new_game():
     teams = team_repository.select_all()
-    return render_template("/games/new.html", teams = teams)
+    scores = game_repository.random_scores()
+    return render_template("/games/new.html", teams = teams, scores = scores)
 
 @games_blueprint.route("/games", methods=["POST"])
 def add_game():

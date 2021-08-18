@@ -3,7 +3,14 @@ from db.run_sql import run_sql
 from models.team import Team
 from models.game import Game
 
+import random
+
 import repositories.team_repository as team_repository
+
+def random_scores():
+    score1 = random.choice(range(5))
+    score2 = random.choice(range(4))
+    return [score1, score2]
 
 def delete_all():
     # deletes all games from db
