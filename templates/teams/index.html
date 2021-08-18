@@ -6,10 +6,12 @@
 
 {% for team in teams %}
 
-<section>
-    <p><a href="/teams/{{team.id}}">{{team.name}}</a> play in this league. </p>
+<a href="/teams/{{team.id}}">{{team.name}}
+    <section>
+        <p> play in this league. </p>
         <p>{{team.manager}} is their manager.</p>
-</section>
+    </section>
+</a>
 {% endfor %}
 
 </div>
