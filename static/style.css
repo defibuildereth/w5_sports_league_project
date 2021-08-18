@@ -21,12 +21,28 @@ th {
 
 #teams-index {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 #teams-index > a {
     background-color: bisque;
-    border: 4px solid crimson;
-    padding: 30px
+    border: 4px solid darkgoldenrod;
+    padding: 30px;
+    margin: 20px
+}
+
+#games-index {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#games-index > section {
+    background-color: bisque;
+    border: 4px solid darkgoldenrod;
+    padding: 20px;
+    margin: 20px
 }
