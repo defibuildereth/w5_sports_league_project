@@ -4,14 +4,15 @@
 
 <h1>Add a New Team</h1>
 
-<form action="/teams" method="post">
-    <label for="name">Team Name</label>
-        <input name="team_name" type="text">
-    <label for="manager">Manager Name</label>
-        <input name="manager_name" type="text">
-        <input type="submit">
-</form>
-
+<div id="team-form">
+    <form action="/teams" method="post">
+        <label for="name">Team Name</label>
+            <input name="team_name" type="text">
+        <label for="manager">Manager Name</label>
+            <input name="manager_name" type="text">
+            <input type="submit">
+    </form>
+</div>
 
 {% endblock %}
 
