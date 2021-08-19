@@ -26,7 +26,7 @@ def add_game():
     team2 = team_repository.select(team2_id)
     if team1_id == team2_id:
         teams = team_repository.select_all()
-        scores= [1,2]
+        scores= game_repository.random_scores()
         error = "The two teams must be different in order to save a new game"
         return render_template("/games/new.html", teams = teams, scores = scores, error= error)
     team1_goals = request.form['team1_goals']
